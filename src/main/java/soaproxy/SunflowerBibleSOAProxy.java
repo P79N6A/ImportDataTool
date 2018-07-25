@@ -28,7 +28,6 @@ public class SunflowerBibleSOAProxy {
         try {
             result = client.queryDest(request);
             if (result == null || result.getResult() == null || result.getResult().size() == 0) return null;
-            result.getResult().get(0);
         } catch (Exception e) {
             e.printStackTrace();
         }

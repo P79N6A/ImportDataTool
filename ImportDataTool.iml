@@ -21,8 +21,6 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-jasper:7.0.73" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jdt.core.compiler:ecj:4.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.gs.destination:business-soa-client:1.1.8" level="project" />
-    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-extensions:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-mobile-request-filter:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.15" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:3.15" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" level="project" />
@@ -31,19 +29,8 @@
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.15" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
-    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.gs:photogalleryadmin-client:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-client:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-common:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-core:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: com.ctrip.soa.caravan:caravan-util:1.13.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.5" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.5" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1.2-ctrip.1" level="project" />
@@ -53,6 +40,7 @@
     <orderEntry type="library" name="Maven: com.ctrip.infosec:WordMask:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.soa.artemis:artemis-client:1.5.15" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.soa.artemis:artemis-common:1.5.15" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.gs:photogalleryservice-client:1.1.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.4.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" level="project" />
@@ -87,7 +75,7 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:7.0.73" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:7.0.73" level="project" />
-    <orderEntry type="library" name="Maven: com.ctrip.gs.destination:admin-soa-client:0.0.7" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.gs.destination:admin-soa-client:0.0.8" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.gs.framework:bestpractise:1.1.12" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.platform:ctrip-dal-client:1.14.10" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.platform:ctrip-datasource:1.14.10" level="project" />
@@ -152,7 +140,26 @@
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.1.7" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.1.7" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:transmittable-thread-local:2.2.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ctrip.basebiz.bi:sunflower-bible-client:0.1.12-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.basebiz.bi:sunflower-bible-client:0.1.15-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-core:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.soa.caravan:caravan-util:1.13.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.13" level="project" />
+    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-common:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-extensions:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-formatter-protobuf:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.soa.caravan:caravan-protobuf:1.13.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-protobuf:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup:protoparser:4.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.ctriposs.baiji:baiji-rpc-mobile-request-filter:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.gs.destination:business-soa-client:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-net:commons-net:3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.gs.poi:poibusiness-soa-client:2.1.30" level="project" />
   </component>
 </module>

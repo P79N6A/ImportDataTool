@@ -1,8 +1,6 @@
 package soaproxy;
 
-import com.ctrip.gs.destination.admin.soa.service.contract.DestAdminServiceClient;
-import com.ctrip.gs.destination.admin.soa.service.contract.ImportDataToCategoryTableRequestType;
-import com.ctrip.gs.destination.admin.soa.service.contract.ImportDataToCategoryTableResponseType;
+import com.ctrip.gs.destination.admin.soa.service.contract.*;
 
 
 public class AdminSOAProxy {
@@ -21,9 +19,18 @@ public class AdminSOAProxy {
         client = DestAdminServiceClient.getInstance();
     }
 
-    public ImportDataToCategoryTableResponseType importDataToCategoryTable(ImportDataToCategoryTableRequestType request){
+    public ImportDataToCategoryTableResponseType importDataToCategoryTable(ImportDataToCategoryTableRequestType request) {
         try {
             return client.importDataToCategoryTable(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public UpdateCategoryResponseType updateCategory(UpdateCategoryRequestType request) {
+        try {
+            return client.updateCategory(request);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -109,21 +109,23 @@ public class ImportMain {
                 if (locationName.startsWith("A")) {
                     data = new DataFormatBO();
                     data.setDistrictId(Long.parseLong(lastContents));
-                    data.setModifiedRank(0);
-                } else if (locationName.startsWith("C")) {
+                } else if (locationName.startsWith("B")) {
                     data.setCategoryCode(lastContents);
+                } else if (locationName.startsWith("C")) {
                     data.setCategoryName(lastContents);
-                } else if (locationName.startsWith("E")) {
-                    data.setBrief(lastContents);
-                } else if (locationName.startsWith("F")) {
-                    data.setIntroduction(lastContents);
                 } else if (locationName.startsWith("D")) {
+                    data.setBrief(lastContents);
+                } else if (locationName.startsWith("E")) {
                     data.setImageUrl(lastContents);
+                } else if (locationName.startsWith("F")) {
+                    data.setModifiedRank(Integer.parseInt(lastContents));
+                } else if (locationName.startsWith("I")) {
+                    data.setIntroduction(lastContents);
                 } else if (locationName.startsWith("K")) {
                     //data.setModifiedRank(Integer.parseInt(lastContents));
                 } else if (locationName.startsWith("G")) {
                     data.setPoiId(Long.parseLong(lastContents));
-                } else if (locationName.startsWith("I")) {
+                } else if (locationName.startsWith("H")) {
                     data.setPoiRank(Integer.parseInt(lastContents));
                     resultList.add(data);
                 }
@@ -139,7 +141,7 @@ public class ImportMain {
     public static void main(String[] args) throws Exception {
         ImportMain example = new ImportMain();
         System.out.println("11");
-        example.processOneSheet("D:\\musttop0703.xlsx");
+        example.processOneSheet("D:\\机器打榜数据（第三批）.xlsx");
         //example.processAllSheets("D:\\testData.xlsx");
 
         System.out.println(ImportMain.resultList.size());
@@ -161,7 +163,7 @@ public class ImportMain {
                 category.setImageId(bo.getImageUrl());
                 category.setModifiedRank((long) bo.getModifiedRank());
                 category.setIntroduction(bo.getIntroduction());
-                category.setChannelType(103);
+                category.setChannelType(3);
                 CategoryPoiDto poi = new CategoryPoiDto();
                 poi.setPoiId(bo.getPoiId());
                 poi.setRank((long) bo.getPoiRank());

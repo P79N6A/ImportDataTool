@@ -56,7 +56,7 @@ public class HttpConnectionUtil {
 
     public static void main(String[] args) throws Exception {
         // 下载文件测试
-        String url = "https://dimg02.c-ctrip.com/images/1005070000002syam4814.jpg";
+        String url = "https://dimg08.c-ctrip.com/images//100b050000000dk6pF3AF.jpg";
         String fileName = url.substring(url.lastIndexOf("/"));
         downloadFile(url, "d:\\test\\"+fileName);
         System.out.println("下载完成");
