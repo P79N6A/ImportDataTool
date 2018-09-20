@@ -75,7 +75,7 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:7.0.73" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:7.0.73" level="project" />
-    <orderEntry type="library" name="Maven: com.ctrip.gs.destination:admin-soa-client:0.0.8" level="project" />
+    <orderEntry type="library" name="Maven: com.ctrip.gs.destination:admin-soa-client:0.0.9" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.gs.framework:bestpractise:1.1.12" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.platform:ctrip-dal-client:1.14.10" level="project" />
     <orderEntry type="library" name="Maven: com.ctrip.platform:ctrip-datasource:1.14.10" level="project" />

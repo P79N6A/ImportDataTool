@@ -56,7 +56,7 @@
         <dependency>
             <groupId>com.ctrip.gs.destination</groupId>
             <artifactId>admin-soa-client</artifactId>
-            <version>0.0.8</version>
+            <version>0.0.9</version>
         </dependency>
         <dependency>
             <groupId>com.ctrip.gs.framework</groupId>

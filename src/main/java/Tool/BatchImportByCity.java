@@ -24,11 +24,12 @@ import java.util.List;
 public class BatchImportByCity {
 
     public static void main(String[] args) throws Exception {
-        List<List<String>> excelData = ReadExcelUtil.readExcel("D:\\机器导入城市（批量）.xlsx", 1);
+        List<List<String>> excelData = ReadExcelUtil.readExcel("D:\\importData\\888.xlsx", 0);
         System.out.println(excelData.size());
         List<ImportDataToCategoryTableRequestType> categorys = new ArrayList<>();
         for (List<String> citys : excelData) {
-            String districtId = citys.get(1).trim();
+            String districtId = citys.get(0).trim();
+            if (StringUtils.isBlank(districtId)) continue;
             long cityId = DestBusinessSOA4JavaProxy.getInstance().getCityIdByDistrictId(Long.parseLong(districtId));
             if (cityId != 0) {
                 DestQueryDTO request = new DestQueryDTO();
@@ -37,7 +38,7 @@ public class BatchImportByCity {
                 request.setFields(Arrays.asList("id,name,themes".split(",")));
                 DestQueryResultDTO data = SunflowerBibleSOAProxy.getInstance().queryDest(request);
                 List<ImportDataToCategoryTableRequestType> categorylist = getImportDataToCategoryTableRequestType(data, districtId);
-                if (categorylist != null && categorylist.size() > 2) {
+                if (categorylist != null ) {
                     categorys.addAll(categorylist);
                 }
             }
@@ -47,6 +48,11 @@ public class BatchImportByCity {
             List<List<String>> data = new ArrayList<>();
             for (ImportDataToCategoryTableRequestType category : categorys) {
                 //AdminSOAProxy.getInstance().importDataToCategoryTable(category);
+/*                String url = "";
+                System.out.println(category.getImageId());
+                if (category.getImageId() != null && !"null".equals(category.getImageId())) {
+                    url = PhotoSoaProxy.getInstance().getPhotoUrlById(Long.parseLong(category.getImageId()));
+                }*/
                 for (CategoryPoiDto poi : category.getCategoryPoiList()) {
                     List<String> a = new ArrayList<>();
                     a.add(category.getCityId() + "");
@@ -55,15 +61,16 @@ public class BatchImportByCity {
                     a.add(category.getCategoryName());
                     a.add(category.getBrief());
                     a.add(category.getImageId());
+                    //a.add(url);
                     a.add(category.getModifiedRank() + "");
                     a.add(poi.getPoiId() + "");
                     a.add(poi.getRank() + "");
                     data.add(a);
                 }
             }
-            ExportExcelUtil.exportExcel(data, "D:\\dypsj6.xlsx");
+            ExportExcelUtil.exportExcel(data, "D:\\0827.xlsx");
         }
-        Runtime.getRuntime().exec("cmd /c start D:\\dypsj6.xlsx");
+        Runtime.getRuntime().exec("cmd /c start D:\\0827.xlsx");
         System.out.println("over!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 

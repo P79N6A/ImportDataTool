@@ -116,16 +116,16 @@ public class ImportMain {
                 } else if (locationName.startsWith("D")) {
                     data.setBrief(lastContents);
                 } else if (locationName.startsWith("E")) {
-                    data.setImageUrl(lastContents);
-                } else if (locationName.startsWith("F")) {
-                    data.setModifiedRank(Integer.parseInt(lastContents));
-                } else if (locationName.startsWith("I")) {
                     data.setIntroduction(lastContents);
+                } else if (locationName.startsWith("F")) {
+                    data.setImageUrl(lastContents);
+                } else if (locationName.startsWith("G")) {
+                    data.setModifiedRank(Integer.parseInt(lastContents));
                 } else if (locationName.startsWith("K")) {
                     //data.setModifiedRank(Integer.parseInt(lastContents));
-                } else if (locationName.startsWith("G")) {
-                    data.setPoiId(Long.parseLong(lastContents));
                 } else if (locationName.startsWith("H")) {
+                    data.setPoiId(Long.parseLong(lastContents));
+                } else if (locationName.startsWith("I")) {
                     data.setPoiRank(Integer.parseInt(lastContents));
                     resultList.add(data);
                 }
@@ -141,11 +141,11 @@ public class ImportMain {
     public static void main(String[] args) throws Exception {
         ImportMain example = new ImportMain();
         System.out.println("11");
-        example.processOneSheet("D:\\机器打榜数据（第三批）.xlsx");
+        example.processOneSheet("D:\\importData\\机器打榜数据（第五批).xlsx");
         //example.processAllSheets("D:\\testData.xlsx");
 
         System.out.println(ImportMain.resultList.size());
-        Map<String, ImportDataToCategoryTableRequestType> categoryMap = new HashMap<>();
+        final Map<String, ImportDataToCategoryTableRequestType> categoryMap = new HashMap<>();
         for (DataFormatBO bo : resultList) {
             if (categoryMap.containsKey(bo.getDistrictId() + bo.getCategoryCode())) {
                 CategoryPoiDto poi = new CategoryPoiDto();
@@ -163,7 +163,13 @@ public class ImportMain {
                 category.setImageId(bo.getImageUrl());
                 category.setModifiedRank((long) bo.getModifiedRank());
                 category.setIntroduction(bo.getIntroduction());
-                category.setChannelType(3);
+                category.setSourceFrom("AI");
+                if ("mustPlay".equals(bo.getCategoryCode())){
+                    category.setChannelType(113);
+                    category.setCategoryTags("19996");
+                }else{
+                    category.setChannelType(3);
+                }
                 CategoryPoiDto poi = new CategoryPoiDto();
                 poi.setPoiId(bo.getPoiId());
                 poi.setRank((long) bo.getPoiRank());

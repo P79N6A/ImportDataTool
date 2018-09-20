@@ -2,6 +2,11 @@ package util;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.xssf.streaming.SXSSFCell;
+import org.apache.poi.xssf.streaming.SXSSFRow;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.*;
 
 import java.io.File;
@@ -26,8 +31,15 @@ public class ExportExcelUtil {
             File file = new File(filePath);
             fout = new FileOutputStream(file);
             if (filePath.endsWith(".xlsx")) {
-                XSSFWorkbook wb = getXSSFWorkbook(null, null, values, null);
-                wb.write(fout);
+
+                if (values.size()>60000){
+                    SXSSFWorkbook  wb = getSXSSFWorkbook(null, null, values, null);
+                    wb.write(fout);
+                }else {
+                    XSSFWorkbook wb = getXSSFWorkbook(null, null, values, null);
+                    wb.write(fout);
+                }
+
             } else {
                 HSSFWorkbook wb = getHSSFWorkbook(null, null, values, null);
                 wb.write(fout);
@@ -42,7 +54,13 @@ public class ExportExcelUtil {
             String str1 = "导出" + filePath + "失败！";
             System.out.println(str1);
         } finally {
-
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -125,6 +143,57 @@ public class ExportExcelUtil {
 
         //声明列对象
         XSSFCell cell = null;
+
+        //创建标题
+        if (title != null && title.size() > 0) {
+            for (int i = 0; i < title.size(); i++) {
+                cell = row.createCell(i);
+                cell.setCellValue(title.get(i));
+                cell.setCellStyle(style);
+            }
+        }
+
+        //创建内容
+        for (int i = 0; i < values.size(); i++) {
+            row = sheet.createRow(i + 1);
+            for (int j = 0; j < values.get(i).size(); j++) {
+                //将内容按顺序赋给对应的列对象
+                row.createCell(j).setCellValue(values.get(i).get(j));
+            }
+        }
+        return wb;
+    }
+
+
+    /**
+     * 导出Excel
+     *
+     * @param sheetName sheet名称
+     * @param title     标题
+     * @param values    内容
+     * @param wb        HSSFWorkbook对象
+     * @return
+     */
+    public static SXSSFWorkbook getSXSSFWorkbook(String sheetName, List<String> title, List<List<String>> values, SXSSFWorkbook wb) {
+
+        // 第一步，创建一个HSSFWorkbook，对应一个Excel文件
+        if (wb == null) {
+            wb = new SXSSFWorkbook();
+        }
+
+        // 第二步，在workbook中添加一个sheet,对应Excel文件中的sheet
+        if (StringUtils.isBlank(sheetName)) sheetName = "sheet1";
+        SXSSFSheet sheet = wb.createSheet(sheetName);
+
+        // 第三步，在sheet中添加表头第0行,注意老版本poi对Excel的行数列数有限制
+        SXSSFRow row = sheet.createRow(0);
+
+        // 第四步，创建单元格，并设置值表头 设置表头居中
+        CellStyle style = wb.createCellStyle();
+        style.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式
+
+        //声明列对象
+        SXSSFCell cell = null;
 
         //创建标题
         if (title != null && title.size() > 0) {

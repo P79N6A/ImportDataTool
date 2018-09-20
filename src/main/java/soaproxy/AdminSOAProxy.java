@@ -36,4 +36,13 @@ public class AdminSOAProxy {
         }
         return null;
     }
+
+    public UpdateCategoryPoiResponseType updateCategoryPoi(UpdateCategoryPoiRequestType request) {
+        try {
+            return client.updateCategoryPoi(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

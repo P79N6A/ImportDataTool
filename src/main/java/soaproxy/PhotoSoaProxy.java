@@ -4,10 +4,10 @@ import com.ctrip.gs.photogallery.admin.soa.contract.AddPhotoUploadInfoRequestTyp
 import com.ctrip.gs.photogallery.admin.soa.contract.AddPhotoUploadInfoResponseType;
 import com.ctrip.gs.photogallery.admin.soa.contract.GsPhotoGalleryAdminSoaClient;
 import com.ctrip.gs.photogallery.admin.soa.contract.PhotoUploadInfoDto;
-import com.ctrip.gs.photogallery.service.soa.contract.GetPhotoIdByFpathRequestType;
-import com.ctrip.gs.photogallery.service.soa.contract.GetPhotoIdByFpathResponseType;
-import com.ctrip.gs.photogallery.service.soa.contract.GsPhotoGallerySoaClient;
+import com.ctrip.gs.photogallery.service.soa.contract.*;
 import org.apache.commons.lang.StringUtils;
+
+import java.util.Arrays;
 
 /**
  * Created by lilianga on 2018/6/15.
@@ -56,6 +56,22 @@ public class PhotoSoaProxy {
             GetPhotoIdByFpathResponseType response = client_.getPhotoIdByFpath(request);
             if (response == null || response.getPhotoIdList() == null || response.getPhotoIdList().size() == 0) return null;
             return response.getPhotoIdList().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getPhotoUrlById(Long id) {
+        if (id == null || id == 0) return null;
+        GetPhotoListRequestType request = new GetPhotoListRequestType();
+        request.setPhotoIdList(Arrays.asList(id));
+        try {
+            GetPhotoListResponseType response = client_.getPhotoList(request);
+            if (response != null && response.getResultList().size() > 0) {
+                PhotoInfoDto info = response.getResultList().get(0);
+                return info.getPhotoUrl().getBaseUrl();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
