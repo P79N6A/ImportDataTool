@@ -16,7 +16,7 @@ public class GaoDeMap {
         String temp = null;
         List<List<String>> values = new ArrayList<>();
         try {
-            List<String> filePaths = readfile("D:\\b\\08");
+            List<String> filePaths = readfile("D:\\-1");
             int line = 1;
             for (String filePath : filePaths) {
                 File file = new File(filePath);
@@ -47,7 +47,7 @@ public class GaoDeMap {
                 }
             }
         }
-        ExportExcelUtil.exportExcel(values, "D:\\b\\08.xlsx");
+        ExportExcelUtil.exportExcel(values, "D:\\-1.xlsx");
     }
 
     public static List<String> readfile(String filepath) throws FileNotFoundException, IOException {
